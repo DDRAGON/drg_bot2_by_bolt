@@ -1,0 +1,17 @@
+{
+  "name": "drg_bot2_by_bolt",
+  "version": "1.0.0",
+  "description": "D_drAAgonのボットだよ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Slackぼっと"
+  ],
+  "author": "折原 ダビデ竜",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/bolt": "^2.4.1"
+  }
+}

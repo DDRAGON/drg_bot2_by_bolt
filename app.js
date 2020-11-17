@@ -17,8 +17,10 @@ app.message('hello', async ({ message, say }) => {
   await app.start(process.env.PORT || 3000);
   console.log('⚡️ Bolt app is running!');
 
-  app.client.chat.postMessage({
+  const result = await app.client.chat.postMessage({
     channel: '#davide_test',
     text: `You can introduce yourself in this channel.`
   });
+
+  console.log(result);
 })();

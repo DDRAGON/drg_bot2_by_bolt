@@ -1,4 +1,7 @@
 const { App } = require('@slack/bolt');
+const cron = require('node-cron');
+
+const lessonInfo = require('./lib/lessonInfo');
 
 const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -18,9 +21,13 @@ app.message('hello', async ({ message, say }) => {
   console.log('⚡️ Bolt app is running!');
 
   const result = await app.client.chat.postMessage({
-    channel: '#davide_test',
+    token: process.env.SLACK_BOT_TOKEN,
+    channel: 'davide_test',
     text: `You can introduce yourself in this channel.`
   });
 
-  console.log(result);
+  cron.schedule('0 50 * * *', () => {
+    console.log('came to cron! HAPPY');
+    lessonInfo.checkToday(app);
+  });
 })();

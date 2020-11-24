@@ -26,7 +26,7 @@ app.message('hello', async ({ message, say }) => {
     text: `You can introduce yourself in this channel.`
   });
 
-  cron.schedule('0 50 * * *', () => {
+  cron.schedule('0 18 * * *', () => {
     console.log('came to cron! HAPPY');
     lessonInfo.checkToday(app);
   });
